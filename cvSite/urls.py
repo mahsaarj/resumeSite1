@@ -19,7 +19,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-#from blog import views
+from blog import views
 # from website.sitemaps import StaticViewSitemap
 # from blog.sitemaps import BlogSitemap
 from django_summernote import urls as summernote_urls
@@ -28,7 +28,7 @@ import debug_toolbar
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('website.urls')),
-    #path('blog/', include('blog.urls')),
+    path('blog/', include('blog.urls')),
     #path('accounts/', include('accounts.urls')),
     path('robots.txt', include('robots.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
