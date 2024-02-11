@@ -34,3 +34,16 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:single', kwargs={'pid': self.id})
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,default=0)  # Replace 0 with the appropriate default value
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    opinion = models.TextField()
+    approved = models.BooleanField()
+
+    # Other fields and relationships for the Comment model
+
+    def __str__(self):
+        return self.name
