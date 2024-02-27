@@ -88,7 +88,6 @@
                     <div class="row section-separator">
                         <div class="mh-page-title text-center col-sm-12">
                             <h2>Blog</h2>
-                            <p> {{ post.content }}</p>
                         </div>
                     </div>
                 </div>
@@ -100,32 +99,25 @@
                 <div class="row section-separator">
                     <div class="col-md-8">
                         <div class="row">
+                            {% for post in posts %}
                             <div class="col-sm-12 col-md-12">
                                 <div class="mh-blog-item dark-bg blog-single">
-                                    <img src="{% static 'images/home-bg-img.jpg' %}" alt="" class="img-fluid">
                                     <div class="blog-inner">
-                                        <h2><a href="">A life without the daily traffic jams</a></h2>
+                                        <h2><a href="">{{ post.title}}</a></h2>
+                                        <img src="{{post.image.url}}" alt="" class="img-fluid">
+                                         <p>
+                                            {{ post.content|safe }}
+                                        </p>
                                         <div class="mh-blog-post-info">
                                             <ul>
                                                 <li><strong>Post On</strong><a href="">{{ post.published_date|date:"D d M Y"}}</a></li>
-                                                <li><strong>By</strong><a href="">{{ post.author.get_full_name }}</a></li>
+                                                <li><strong>By</strong><a href="">{{ post.author }}</a></li>
                                             </ul>
                                         </div>
-                                        <p>
-                                            {{ post.content}}
-                                        </p>                                        
-                                        <p>
-                                            {{ post.content}}
-                                        </p>                                        
-
-                                        <img src="{% static 'images/home-bg-img.jpg' %}" alt="" class="img-fluid">
-
-                                        <p>
-                                           {{ post.content}}
-                                        </p>
                                     </div>
                                 </div>
                             </div>
+                            {% endfor %}
 
                             <!-- Comments-->
                             {% include 'blog/comment-blog.html' %}

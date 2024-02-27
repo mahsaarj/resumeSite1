@@ -1,4 +1,5 @@
 {% load static %}
+{% block content %}
 <section class="mh-blog" id="mh-blog">
             <div class="container">
                 <div class="row section-separator">
@@ -9,7 +10,7 @@
                          <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                             <img src="{% static 'images/b-3.png' %}" alt="" class="img-fluid">
                             <div class="blog-inner">
-                                <h2><a href="blog-single.html">A life without the daily traffic jams</a></h2>
+                                <h2><a href="{% url 'blog:single' %}">A life without the daily traffic jams</a></h2>
                                 <div class="mh-blog-post-info">
                                     <ul>
                                         <li><strong>Post On</strong><a href="">24.11.19</a></li>
@@ -17,7 +18,8 @@
                                     </ul>
                                 </div>
                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                                <a href="blog-single.html">Read More</a>
+                                <a href={% url 'blog:single' %}>Read More</a>
+                                {% url 'blog:single' %}
                             </div>
                         </div>
                     </div>
@@ -25,7 +27,7 @@
                         <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
                             <img src="{% static 'images/b-2.png' %}" alt="" class="img-fluid">
                             <div class="blog-inner">
-                                <h2><a href="blog-single.html">Proportion are what’s really needed</a></h2>
+                                <h2><a href={% url 'blog:single' %}>Proportion are what’s really needed</a></h2>
                                 <div class="mh-blog-post-info">
                                     <ul>
                                         <li><strong>Post On</strong><a href="">24.11.19</a></li>
@@ -33,7 +35,7 @@
                                     </ul>
                                 </div>
                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                                <a href="blog-single.html">Read More</a>
+                                <a href={% url 'blog:single' %}>Read More</a>
                             </div>
                         </div>
                     </div>
@@ -41,7 +43,7 @@
                         <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
                             <img src="{% static 'images/b-1.png' %}" alt="" class="img-fluid">
                             <div class="blog-inner">
-                                <h2><a href="blog-single.html">Mounts of paper work to remember the way</a></h2>
+                                <h2><a href={% url 'blog:single' %}>Mounts of paper work to remember the way</a></h2>
                                 <div class="mh-blog-post-info">
                                     <ul>
                                         <li><strong>Post On</strong><a href="">24.11.19</a></li>
@@ -49,10 +51,11 @@
                                     </ul>
                                 </div>
                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-                                <a href="blog-single.html">Read More</a>
+                                <a href={% url 'blog:single' %}>Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>      
+        </section>
+{% endblock %}
